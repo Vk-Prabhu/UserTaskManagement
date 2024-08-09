@@ -1,0 +1,38 @@
+﻿@model TaskManagementSystem.BAL.Models.UserDetailModel;
+<style>
+    .test {
+        background-color:cadetblue;
+    }
+    .test-color{
+      color:red;
+    }
+    .h1{
+        text-align:center;
+    }
+</style>
+<div class="row test col-md-4"></div>
+<div class="row test col-md-6" style="width:800px; margin:0 auto;">
+  <form method="post" asp-controller="Account" asp-action="Register">
+    <h1>Registration Form</h1>
+    <div>
+            <label asp-for="UserName">UserName<span style="color:red">*</span></label>
+        <input type="text" asp-for="UserName" class="form-control" required />
+    </div>
+    <div class="form-group">
+            <label asp-for="Password"><span style="color:red">*</span>Password</label>
+        <input type="text" asp-for="Password" class="form-control" required/>
+    </div>
+    <div class="form-group">
+            <label asp-for="ConfirmPassword"><span style="color:red">*</span>Confirm Password</label>
+        <input type="password" asp-for="ConfirmPassword" class="form-control" required/>
+    </div>
+    <div class="form-group">
+            <label asp-for="Email"><span style="color:red">*</span>Email</label>
+        <input type="email" asp-for="Email" class="form-control" required/>
+
+    </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" onclick="return confirm('Click Ok To Register!');">Submit</button>
+            </div>
+    </form>
+    </div>

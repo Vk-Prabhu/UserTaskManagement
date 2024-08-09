@@ -1,0 +1,94 @@
+﻿@model TaskManagementSystem.BAL.Models.TaskDetailModel
+@{
+    ViewBag.Title = "Edit Task";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="text-center text-primary mb-4">Edit/Update Task</h2>
+            <form method="post" asp-controller="TaskDetail" asp-action="EditTask">
+                <div class="form-group mb-3">
+                    <label asp-for="Title" class="form-label">Title</label>
+                    <input type="text" asp-for="Title" class="form-control" placeholder="Enter task title" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Description" class="form-label">Description</label>
+                    <textarea asp-for="Description" class="form-control" placeholder="Enter task description"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="DueDate" class="form-label">Due Date</label>
+                    <input type="date" asp-for="DueDate" class="form-control" />
+                    <span asp-validation-for="DueDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="IsCompleted" class="form-label">Status</label>
+                    <select asp-for="IsCompleted" class="form-select">
+                        <option value="false">Incomplete</option>
+                        <option value="true">Complete</option>
+                    </select>
+                    <span asp-validation-for="IsCompleted" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label asp-for="TaskUserId" class="form-label">Assigned User</label>
+                        <input type="number" asp-for="TaskUserId" class="form-control" />
+                    <span asp-validation-for="TaskUserId" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary" onclick="return confirm('Save changes made to this task?');">Save Changes</button>
+                    <a asp-controller="TaskDetail" asp-action="TaskList" class="btn btn-outline-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+@* @{
+    ViewBag.Title = "Edit Task";
+}
+<div class="row test col-md-4"></div>
+<div class="row test col-md-6">
+    <h1 style="width:800px; margin:0 auto;">
+         Edit/Update a Task
+    </h1>
+    <form method="post" asp-controller="TaskDetail" asp-action="EditTask">
+        <div class="form-group">
+            <label asp-for="Title">Title</label>
+            <input type="text" asp-for="Title" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Description">Description</label>
+            <input type="text" asp-for="Description" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="DueDate">DueDate</label>
+            <input type="text" asp-for="DueDate" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsCompleted">Status</label>
+            <input type="text" asp-for="IsCompleted" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="TaskUserId">UserId</label>
+            <input type="number" asp-for="TaskUserId" class="form-control" />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" onclick="return confirm('Save Changes Made!?')";>Submit</button>
+            <a asp-controller="TaskDetail" asp-action="TaskList" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+        </form>
+    </div    *@
